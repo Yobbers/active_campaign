@@ -122,6 +122,18 @@ module ActiveCampaign
       def update_contact(id, params)
         put("contacts/#{id}", contact: params)
       end
+
+      #
+      # Subscribe a contact to a list or unsubscribe a contact from a list
+      #
+      # @option params [Integer] :list the list id
+      # @option params [Integer] :contact the contact id
+      # @option params [Integer] :status 1 to subscribe conatct to a list, 2 to unsubscribe contact from a list
+      # @return [Hash] a hash with information about the newly created contact
+      #
+      def update_contact_list(params)
+        post("contactLists", contact_list: params)
+      end
     end
   end
 end
